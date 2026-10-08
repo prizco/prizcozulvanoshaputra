@@ -1,3 +1,13 @@
+:root {
+    --abyss: #06161f;
+    --deep: #0c2431;
+    --panel: #12384a;
+    --foam: #e6f0f2;
+    --mist: #9db7c0;
+    --rov: #ff8a3d;
+    --radius: 10px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +16,24 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: #f8fafc;
-    line-height: 1.6;
+    font-family: "IBM Plex Sans", Arial, sans-serif;
+    background: var(--abyss);
+    color: var(--foam);
+    line-height: 1.7;
+}
+
+h1, h2, h3, .logo {
+    font-family: "Bricolage Grotesque", Arial, sans-serif;
+    line-height: 1.15;
+}
+
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--rov);
+    outline-offset: 3px;
 }
 
 
@@ -23,14 +44,14 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(6, 22, 31, 0.92);
     backdrop-filter: blur(10px);
 }
 
 .navbar {
     max-width: 1100px;
     margin: auto;
-    padding: 20px;
+    padding: 18px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,22 +59,36 @@ header {
 
 .logo {
     font-size: 24px;
+    font-weight: 800;
+    color: var(--foam);
+    text-decoration: none;
 }
 
 .nav-links {
     display: flex;
-    gap: 25px;
+    gap: 24px;
     list-style: none;
 }
 
 .nav-links a {
-    color: white;
+    color: var(--foam);
     text-decoration: none;
-    transition: 0.3s;
+    transition: color 0.2s;
 }
 
 .nav-links a:hover {
-    color: #38bdf8;
+    color: var(--rov);
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    color: var(--foam);
+    border: 1px solid var(--mist);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font: inherit;
+    cursor: pointer;
 }
 
 
@@ -63,34 +98,72 @@ header {
     min-height: 100vh;
     max-width: 1100px;
     margin: auto;
-    padding: 150px 20px 80px;
-
-    display: flex;
+    padding: 140px 20px 80px;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 50px;
     align-items: center;
 }
 
-.hero-text {
-    max-width: 700px;
-}
-
 .greeting {
-    color: #38bdf8;
+    color: var(--rov);
     font-size: 20px;
 }
 
 .hero h1 {
     font-size: 60px;
+    font-weight: 800;
     margin: 10px 0;
 }
 
 .hero h2 {
-    color: #94a3b8;
-    font-size: 30px;
+    color: var(--mist);
+    font-size: 24px;
+    font-weight: 500;
 }
 
-.hero p {
-    margin: 20px 0;
-    color: #cbd5e1;
+.hero-text > p:not(.greeting) {
+    margin: 20px 0 28px;
+    color: var(--mist);
+    max-width: 60ch;
+}
+
+.hero-photo {
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius);
+    border: 2px solid var(--rov);
+}
+
+
+/* Image placeholder: tampil otomatis jika gambar belum ada */
+
+.img-slot {
+    position: relative;
+    background: var(--panel);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.img-slot.empty img {
+    display: none;
+}
+
+.img-slot.empty::after {
+    content: attr(data-label) "\A(images/ belum diisi)";
+    white-space: pre;
+    text-align: center;
+    color: var(--mist);
+    font-size: 14px;
+    padding: 10px;
 }
 
 
@@ -99,23 +172,23 @@ header {
 .btn {
     display: inline-block;
     padding: 12px 22px;
-    background: #38bdf8;
-    color: #0f172a;
+    background: var(--rov);
+    color: var(--abyss);
     text-decoration: none;
     border-radius: 8px;
-    font-weight: bold;
+    font-weight: 700;
     margin-right: 10px;
-    transition: 0.3s;
+    border: 1px solid var(--rov);
+    transition: transform 0.2s;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
 .secondary {
     background: transparent;
-    border: 1px solid #38bdf8;
-    color: #38bdf8;
+    color: var(--rov);
 }
 
 
@@ -124,7 +197,7 @@ header {
 .section {
     max-width: 1100px;
     margin: auto;
-    padding: 100px 20px;
+    padding: 90px 20px;
 }
 
 .section-title {
@@ -144,7 +217,89 @@ header {
 
 .about-text p {
     margin-bottom: 20px;
-    color: #cbd5e1;
+    color: var(--mist);
+}
+
+
+/* Timeline */
+
+.timeline {
+    max-width: 760px;
+    margin: auto;
+    border-left: 2px solid var(--panel);
+    padding-left: 28px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 34px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -36px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--rov);
+}
+
+.timeline-date {
+    color: var(--rov);
+    font-size: 14px;
+}
+
+.timeline-item h3 {
+    font-size: 22px;
+    margin: 4px 0;
+}
+
+.timeline-org {
+    color: var(--mist);
+}
+
+
+/* Achievements */
+
+.achievements-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.achievement {
+    background: var(--deep);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.achievement .img-slot {
+    height: 190px;
+}
+
+.achievement-body {
+    padding: 22px;
+}
+
+.rank {
+    display: inline-block;
+    background: var(--rov);
+    color: var(--abyss);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 2px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.achievement-body h3 {
+    font-size: 20px;
+}
+
+.achievement-body p {
+    color: var(--mist);
 }
 
 
@@ -157,15 +312,19 @@ header {
 }
 
 .skill {
-    background: #1e293b;
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
+    background: var(--deep);
+    padding: 28px;
+    border-radius: var(--radius);
+    border-top: 3px solid var(--rov);
 }
 
 .skill h3 {
-    color: #38bdf8;
     margin-bottom: 10px;
+}
+
+.skill p {
+    color: var(--mist);
+    font-size: 15px;
 }
 
 
@@ -178,23 +337,22 @@ header {
 }
 
 .project-card {
-    background: #1e293b;
-    border-radius: 12px;
+    background: var(--deep);
+    border-radius: var(--radius);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-image {
     height: 180px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #334155;
-    font-size: 25px;
-    font-weight: bold;
 }
 
 .project-content {
-    padding: 25px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .project-content h3 {
@@ -202,8 +360,10 @@ header {
 }
 
 .project-content p {
-    color: #cbd5e1;
+    color: var(--mist);
+    font-size: 15px;
     margin-bottom: 20px;
+    flex: 1;
 }
 
 .project-buttons {
@@ -218,19 +378,24 @@ header {
 }
 
 .contact p {
-    color: #cbd5e1;
+    color: var(--mist);
     margin-bottom: 25px;
 }
 
 .contact-links {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 24px;
 }
 
 .contact-links a {
-    color: #38bdf8;
+    color: var(--rov);
     text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
 }
 
 
@@ -239,35 +404,73 @@ header {
 footer {
     text-align: center;
     padding: 30px;
-    background: #020617;
-    color: #94a3b8;
+    background: #020b10;
+    color: var(--mist);
 }
 
 
 /* Responsive */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
-    .nav-links {
-        display: none;
+    .hero {
+        grid-template-columns: 1fr;
     }
 
-    .hero h1 {
-        font-size: 42px;
-    }
-
-    .hero h2 {
-        font-size: 24px;
+    .hero-photo {
+        max-width: 320px;
+        order: -1;
     }
 
     .skills-container {
         grid-template-columns: 1fr 1fr;
     }
 
-    .projects-container {
-        grid-template-columns: 1fr;
+    .projects-container,
+    .achievements-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
     }
 
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        background: var(--abyss);
+        padding: 10px 20px 20px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .projects-container,
+    .achievements-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 500px) {
@@ -287,4 +490,46 @@ footer {
         margin-right: 0;
     }
 
+    .project-buttons {
+        gap: 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .btn {
+        transition: none;
+    }
+}
+
+
+/* Tambahan: daftar poin timeline, catatan bahasa, tanggal project */
+
+.timeline-item ul {
+    margin: 10px 0 0 18px;
+    color: var(--mist);
+    font-size: 15px;
+}
+
+.timeline-item li {
+    margin-bottom: 4px;
+}
+
+.project-content .timeline-date {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.project-content h3 {
+    font-size: 19px;
+}
+
+.lang-note {
+    text-align: center;
+    color: var(--mist);
+    margin-top: 30px;
 }
