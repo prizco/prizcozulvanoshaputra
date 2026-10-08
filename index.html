@@ -3,260 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Portofolio | PRIZCO ZULVANO SHAPUTRA</title>
-
+    <meta name="description" content="Portofolio Prizco Zulvano Shaputra - Automation Engineering, ROV, IoT, dan sistem monitoring.">
+    <title>Prizco Zulvano Shaputra | Portofolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Navbar -->
     <header>
         <nav class="navbar">
-            <h2 class="logo">PRIZCO ZULVANO SHAPUTRA.</h2>
-
+            <a href="#home" class="logo">Prizco.</a>
+            <button class="menu-toggle" aria-label="Buka menu" aria-expanded="false">Menu</button>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">Tentang</a></li>
-                <li><a href="#skills">Skill</a></li>
+                <li><a href="#experience">Pengalaman</a></li>
+                <li><a href="#achievements">Prestasi</a></li>
                 <li><a href="#projects">Project</a></li>
+                <li><a href="#organization">Organisasi</a></li>
+                <li><a href="#skills">Skill</a></li>
                 <li><a href="#contact">Kontak</a></li>
             </ul>
         </nav>
     </header>
 
-
     <!-- Hero -->
     <section id="home" class="hero">
-
         <div class="hero-text">
             <p class="greeting">Halo, saya</p>
-
-            <h1>PRIZCO ZULVANO SHAPUTRA</h1>
-
-            <h2>Web Developer</h2>
-
+            <h1>Prizco Zulvano Shaputra</h1>
+            <h2>Automation Engineering: ROV, IoT &amp; Sistem Monitoring</h2>
             <p>
-                Saya adalah seseorang yang tertarik dengan dunia teknologi
-                dan pengembangan website.
+                Mahasiswa Teknik Otomasi Politeknik Perkapalan Negeri Surabaya
+                yang membangun robot bawah air dan sistem monitoring.
+                Juara 1 MATE ROV ASEAN Singapore 2026.
             </p>
-
             <div class="hero-buttons">
                 <a href="#projects" class="btn">Lihat Project</a>
-
-                <a href="#contact" class="btn secondary">
-                    Hubungi Saya
-                </a>
+                <a href="#contact" class="btn secondary">Hubungi Saya</a>
             </div>
         </div>
 
+        <!-- FOTO PROFIL: simpan sebagai images/profil.jpg -->
+        <div class="img-slot hero-photo" data-label="Foto profil">
+            <img src="images/profil.jpg" alt="Foto Prizco Zulvano Shaputra">
+        </div>
     </section>
-
 
     <!-- About -->
     <section id="about" class="section">
-
         <h2 class="section-title">Tentang Saya</h2>
-
         <div class="about-content">
-
             <div class="about-text">
                 <p>
-                    Halo! Saya Nama Kamu. Saya memiliki ketertarikan
-                    terhadap pengembangan website dan teknologi.
+                    Saya Prizco Zulvano Shaputra, mahasiswa Teknik Otomasi di
+                    Politeknik Perkapalan Negeri Surabaya (Jul 2022 – Sep 2026, IPK 3,34 / 4,00)
+                    dan lulusan SMKN 3 Boyolangu jurusan Teknik Elektro.
                 </p>
-
                 <p>
-                    Saat ini saya sedang belajar dan mengembangkan
-                    berbagai project untuk meningkatkan kemampuan
-                    saya di bidang programming.
+                    Lebih dari 6 tahun, dari SMK sampai kuliah, saya belajar merakit sistem
+                    kelistrikan. Saya punya jiwa kepemimpinan dan terbiasa bekerja dalam tim,
+                    termasuk sebagai ketua tim robot bawah air HYDROSHIPS.
                 </p>
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- Skills -->
-    <section id="skills" class="section">
-
-        <h2 class="section-title">Skills</h2>
-
-        <div class="skills-container">
-
-            <div class="skill">
-                <h3>HTML</h3>
-                <p>Membuat struktur website.</p>
-            </div>
-
-            <div class="skill">
-                <h3>CSS</h3>
-                <p>Membuat tampilan website menjadi menarik.</p>
-            </div>
-
-            <div class="skill">
-                <h3>JavaScript</h3>
-                <p>Membuat website menjadi interaktif.</p>
-            </div>
-
-            <div class="skill">
-                <h3>Git & GitHub</h3>
-                <p>Mengelola dan menyimpan project.</p>
-            </div>
-
-        </div>
-
+    <!-- Experience -->
+    <section id="experience" class="section">
+        <h2 class="section-title">Pengalaman Kerja &amp; Pendidikan</h2>
+        <div class="timeline" id="experience-list"></div>
     </section>
 
+    <!-- Achievements -->
+    <section id="achievements" class="section">
+        <h2 class="section-title">Prestasi</h2>
+        <div class="achievements-container" id="achievement-list"></div>
+    </section>
 
     <!-- Projects -->
     <section id="projects" class="section">
-
         <h2 class="section-title">Project Saya</h2>
+        <div class="projects-container" id="project-list"></div>
+    </section>
 
-        <div class="projects-container">
+    <!-- Organization -->
+    <section id="organization" class="section">
+        <h2 class="section-title">Pengalaman Organisasi</h2>
+        <div class="timeline" id="organization-list"></div>
+    </section>
 
-            <div class="project-card">
+    <!-- Skills -->
+    <section id="skills" class="section">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-container">
 
-                <div class="project-image">
-                    Project 1
-                </div>
-
-                <div class="project-content">
-
-                    <h3>Website Toko Online</h3>
-
-                    <p>
-                        Website toko online sederhana yang dibuat
-                        menggunakan HTML, CSS, dan JavaScript.
-                    </p>
-
-                    <div class="project-buttons">
-
-                        <a href="#" class="btn">
-                            Demo
-                        </a>
-
-                        <a href="#" class="btn secondary">
-                            GitHub
-                        </a>
-
-                    </div>
-
-                </div>
-
+            <div class="skill">
+                <h3>Desain &amp; Elektronik</h3>
+                <p>Autodesk Fusion, EAGLE, Proteus.</p>
             </div>
 
-
-            <div class="project-card">
-
-                <div class="project-image">
-                    Project 2
-                </div>
-
-                <div class="project-content">
-
-                    <h3>Aplikasi Kasir</h3>
-
-                    <p>
-                        Aplikasi kasir sederhana untuk mencatat
-                        transaksi dan data produk.
-                    </p>
-
-                    <div class="project-buttons">
-
-                        <a href="#" class="btn">
-                            Demo
-                        </a>
-
-                        <a href="#" class="btn secondary">
-                            GitHub
-                        </a>
-
-                    </div>
-
-                </div>
-
+            <div class="skill">
+                <h3>Pemrograman &amp; PLC</h3>
+                <p>Arduino IDE, Visual Studio Code, CX-Programmer (PLC Omron), CX-Designer.</p>
             </div>
 
+            <div class="skill">
+                <h3>Dokumen &amp; Desain</h3>
+                <p>Microsoft Office (Word, PowerPoint, Excel) dan Canva.</p>
+            </div>
 
-            <div class="project-card">
-
-                <div class="project-image">
-                    Project 3
-                </div>
-
-                <div class="project-content">
-
-                    <h3>Sistem Informasi</h3>
-
-                    <p>
-                        Project sistem informasi sebagai latihan
-                        pengembangan aplikasi berbasis web.
-                    </p>
-
-                    <div class="project-buttons">
-
-                        <a href="#" class="btn">
-                            Demo
-                        </a>
-
-                        <a href="#" class="btn secondary">
-                            GitHub
-                        </a>
-
-                    </div>
-
-                </div>
-
+            <div class="skill">
+                <h3>Soft Skills</h3>
+                <p>Leadership, komunikasi, kerja tim, problem solving, adaptabilitas, critical thinking.</p>
             </div>
 
         </div>
-
+        <p class="lang-note">Bahasa: Indonesia, Inggris (pasif)</p>
     </section>
-
 
     <!-- Contact -->
     <section id="contact" class="section contact">
-
         <h2 class="section-title">Kontak</h2>
-
-        <p>
-            Tertarik untuk bekerja sama atau ingin menghubungi saya?
-        </p>
-
+        <p>Tertarik bekerja sama atau ingin berdiskusi? Hubungi saya.</p>
         <div class="contact-links">
-
-            <a href="mailto:emailkamu@gmail.com">
-                Email
-            </a>
-
-            <a href="https://github.com/username">
-                GitHub
-            </a>
-
-            <a href="https://linkedin.com">
-                LinkedIn
-            </a>
-
+            <a href="mailto:prizcozulvano@student.ppns.ac.id">Email</a>
+            <a href="https://wa.me/6285804273237">WhatsApp</a>
+            <a href="https://www.linkedin.com/in/prizco-zulvano-shaputra" target="_blank" rel="noopener">LinkedIn</a>
         </div>
-
     </section>
 
-
-    <!-- Footer -->
     <footer>
-
-        <p>
-            © 2026 Nama Kamu. All Rights Reserved.
-        </p>
-
+        <p>© 2026 Prizco Zulvano Shaputra. All Rights Reserved.</p>
     </footer>
 
-
     <script src="script.js"></script>
-
 </body>
 </html>
