@@ -110,12 +110,12 @@ document.getElementById("organization-list").innerHTML = timelineHTML(organizati
 
 document.getElementById("achievement-list").innerHTML = achievements.map(a => `
     <div class="achievement">
-        ${imgSlot(a.img, "Foto " + a.title)}
         <div class="achievement-body">
             <span class="rank">${esc(a.rank)}</span>
             <h3>${esc(a.title)}</h3>
             <p>${esc(a.note)}</p>
         </div>
+        ${imgSlot(a.img, "Foto " + a.title)}
     </div>`).join("");
 
 document.getElementById("project-list").innerHTML = projects.map(p => `
