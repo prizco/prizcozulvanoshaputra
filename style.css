@@ -533,3 +533,45 @@ footer {
     color: var(--mist);
     margin-top: 30px;
 }
+
+
+/* Prestasi: satu baris per juara, teks di kiri, gambar di kanan */
+
+.achievements-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.achievement {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px 20px 20px 28px;
+}
+
+.achievement-body {
+    padding: 0;
+}
+
+.achievement .img-slot {
+    width: 260px;
+    height: 160px;
+    flex-shrink: 0;
+    border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+
+    .achievement {
+        flex-direction: column-reverse;
+        align-items: stretch;
+        padding: 20px;
+    }
+
+    .achievement .img-slot {
+        width: 100%;
+    }
+}
