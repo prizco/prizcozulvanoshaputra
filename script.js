@@ -94,7 +94,7 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;",
 
 const imgSlot = (file, label, cls = "") =>
     `<div class="img-slot ${cls}" data-label="${esc(label)}">
-        <img src="images/${esc(file)}" alt="${esc(label)}" loading="lazy">
+        <img src="${esc(file)}" alt="${esc(label)}" loading="lazy">
     </div>`;
 
 const timelineHTML = list => list.map(i => `
