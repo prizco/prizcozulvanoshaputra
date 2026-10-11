@@ -48,11 +48,11 @@ const projects = [
       desc: "Pelacakan posisi, koordinat, dan pergerakan kapal secara real-time dengan Hybrid GPS Tracker." },
     { date: "Jan 2026", title: "ROV dengan Monitoring 3 Kamera", img: "project-rov-camera.jpg",
       desc: "ROV semi-otonom dan manual dengan tiga kamera onboard, tiga layar GCS, dan transmisi video real-time untuk observasi multi-sudut." },
-    { date: "Nov 2025", title: "ROV Inspeksi Lambung Kapal dengan Ultrasonic Thickness Gauge", img: "project-rov-thickness11.jpg",
+    { date: "Ags 2025", title: "ROV Inspeksi Lambung Kapal dengan Ultrasonic Thickness Gauge", img: "project-rov-thickness.jpg",
       desc: "ROV inspeksi yang mengukur ketebalan plat lambung kapal di bawah air memakai sensor ultrasonic thickness gauge untuk menilai kondisi lambung." },
-    { date: "Okt 2025", title: "ROV Pembersih Lambung Kapal Berbasis Sikat Rotari", img: "project-rov-brushing.jpg",
+    { date: "Ags 2025", title: "ROV Pembersih Lambung Kapal Berbasis Sikat Rotari", img: "project-rov-brushing.jpg",
       desc: "Rancang bangun ROV pembersih lambung kapal dengan mekanisme sikat rotari." },
-    { date: "Sep 2025", title: "ROV Pemantau Kualitas Air dengan Sensor pH", img: "project-rov-ph.jpg",
+    { date: "Ags 2025", title: "ROV Pemantau Kualitas Air dengan Sensor pH", img: "project-rov-ph.jpg",
       desc: "ROV monitoring kualitas air yang membaca nilai pH secara real-time." },
     { date: "Ags 2025", title: "ROV untuk Pemetaan dan Survei Bawah Air", img: "project-rov-mapping.jpg",
       desc: "Rancang bangun ROV untuk pemetaan dan survei kondisi bawah air." },
@@ -166,3 +166,117 @@ document.querySelectorAll(".img-slot").forEach(slot => {
     img.addEventListener("error", markEmpty);
     if (img.complete && img.naturalWidth === 0) markEmpty();
 });
+
+
+/* ============================================================
+   ANIMASI BAWAH AIR
+   ============================================================ */
+
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+
+// Muncul saat di-scroll
+const revealTargets = document.querySelectorAll(
+    ".section-title, .about-content, .timeline-item, .achievement, .project-card, .skill, .contact > *"
+);
+
+if (reduceMotion || !("IntersectionObserver" in window)) {
+    revealTargets.forEach(el => el.classList.add("in"));
+} else {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("in");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    revealTargets.forEach(el => {
+        el.classList.add("reveal");
+        // jeda bertahap antar kartu dalam satu baris
+        const idx = [...el.parentElement.children].indexOf(el);
+        el.style.transitionDelay = `${Math.min(idx % 3, 2) * 0.08}s`;
+        observer.observe(el);
+    });
+}
+
+
+// Garis progres scroll
+const progress = document.querySelector(".progress");
+
+function updateProgress() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+}
+
+window.addEventListener("scroll", updateProgress, { passive: true });
+updateProgress();
+
+
+// Gelembung yang naik ke permukaan
+const canvas = document.getElementById("bubbles");
+const ctx = canvas.getContext("2d");
+let bubbles = [];
+let W = 0, H = 0;
+
+function resizeCanvas() {
+    const dpr = window.devicePixelRatio || 1;
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+
+function newBubble(randomY) {
+    return {
+        x: Math.random() * W,
+        y: randomY ? Math.random() * H : H + 20,
+        r: 2 + Math.random() * 7,
+        speed: 0.25 + Math.random() * 0.7,
+        sway: Math.random() * Math.PI * 2,
+        swaySpeed: 0.01 + Math.random() * 0.02,
+        alpha: 0.15 + Math.random() * 0.3
+    };
+}
+
+function initBubbles() {
+    resizeCanvas();
+    const count = Math.round(Math.min(45, Math.max(18, W / 35)));
+    bubbles = Array.from({ length: count }, () => newBubble(true));
+}
+
+function drawBubbles() {
+    ctx.clearRect(0, 0, W, H);
+
+    bubbles.forEach((b, i) => {
+        b.y -= b.speed;
+        b.sway += b.swaySpeed;
+        const x = b.x + Math.sin(b.sway) * 14;
+
+        ctx.beginPath();
+        ctx.arc(x, b.y, b.r, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(190, 235, 245, ${b.alpha})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // kilau kecil di sisi gelembung
+        ctx.beginPath();
+        ctx.arc(x - b.r * 0.35, b.y - b.r * 0.35, b.r * 0.2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${b.alpha})`;
+        ctx.fill();
+
+        if (b.y + b.r < 0) bubbles[i] = newBubble(false);
+    });
+
+    requestAnimationFrame(drawBubbles);
+}
+
+if (reduceMotion) {
+    canvas.style.display = "none";
+} else {
+    initBubbles();
+    drawBubbles();
+    window.addEventListener("resize", initBubbles);
+}
