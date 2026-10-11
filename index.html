@@ -13,7 +13,10 @@
 
 <body>
 
+    <canvas id="bubbles" aria-hidden="true"></canvas>
+
     <header>
+        <div class="progress" aria-hidden="true"></div>
         <nav class="navbar">
             <a href="#home" class="logo">Prizco.</a>
             <button class="menu-toggle" aria-label="Buka menu" aria-expanded="false">Menu</button>
@@ -39,16 +42,22 @@
             <p>
                 Mahasiswa Teknik Otomasi Politeknik Perkapalan Negeri Surabaya
                 yang membangun robot bawah air dan sistem monitoring.
+                Juara 1 MATE ROV ASEAN Singapore 2026.
             </p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn">Lihat Project</a>
                 <a href="#contact" class="btn secondary">Hubungi Saya</a>
+                <a href="CV_PRIZCO_ZULVANO_S.pdf" class="btn ghost" download>Unduh CV</a>
             </div>
         </div>
 
         <!-- FOTO PROFIL: simpan sebagai images/profil.jpg -->
-        <div class="img-slot hero-photo" data-label="Foto profil">
-            <img src="profil.jpg" alt="Foto Prizco Zulvano Shaputra">
+        <div class="photo-wrap">
+            <span class="sonar"></span>
+            <span class="sonar"></span>
+            <div class="img-slot hero-photo" data-label="Foto profil">
+                <img src="images/profil.jpg" alt="Foto Prizco Zulvano Shaputra">
+            </div>
         </div>
     </section>
 
@@ -134,6 +143,12 @@
             <a href="https://www.linkedin.com/in/prizco-zulvano-shaputra" target="_blank" rel="noopener">LinkedIn</a>
         </div>
     </section>
+
+    <div class="wave-divider" aria-hidden="true">
+        <svg class="wave w1" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 60 C150 20 450 100 600 60 C750 20 1050 100 1200 60 V120 H0Z"/></svg>
+        <svg class="wave w2" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 70 C150 30 450 110 600 70 C750 30 1050 110 1200 70 V120 H0Z"/></svg>
+        <svg class="wave w3" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 85 C150 55 450 115 600 85 C750 55 1050 115 1200 85 V120 H0Z"/></svg>
+    </div>
 
     <footer>
         <p>© 2026 Prizco Zulvano Shaputra. All Rights Reserved.</p>
