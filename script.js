@@ -11,6 +11,7 @@ const experience = [
     ]},
     { date: "Jul 2025 – Des 2025", title: "Mechatronic Engineer", org: "CV ROV Indonesia, Surabaya", points: [
         "Ikut mengembangkan ROV dengan sikat untuk membersihkan lambung kapal.",
+        "Menerapkan prinsip Kaizen (5S & PDCA/SDCA) untuk memperbaiki organisasi kerja dan standardisasi.",
         "Ikut mengembangkan ROV untuk memeriksa ketebalan lambung kapal.",
         "Ikut mengembangkan remotely surface vehicle untuk memeriksa kedalaman dan monitoring danau."
     ]},
@@ -47,6 +48,14 @@ const projects = [
       desc: "Pelacakan posisi, koordinat, dan pergerakan kapal secara real-time dengan Hybrid GPS Tracker." },
     { date: "Jan 2026", title: "ROV dengan Monitoring 3 Kamera", img: "project-rov-camera.jpg",
       desc: "ROV semi-otonom dan manual dengan tiga kamera onboard, tiga layar GCS, dan transmisi video real-time untuk observasi multi-sudut." },
+    { date: "Ags 2025", title: "ROV Inspeksi Lambung Kapal dengan Ultrasonic Thickness Gauge", img: "project-rov-thickness.jpg",
+      desc: "ROV inspeksi yang mengukur ketebalan plat lambung kapal di bawah air memakai sensor ultrasonic thickness gauge untuk menilai kondisi lambung." },
+    { date: "Ags 2025", title: "ROV Pembersih Lambung Kapal Berbasis Sikat Rotari", img: "project-rov-brushing.jpg",
+      desc: "Rancang bangun ROV pembersih lambung kapal dengan mekanisme sikat rotari." },
+    { date: "Ags 2025", title: "ROV Pemantau Kualitas Air dengan Sensor pH", img: "project-rov-ph.jpg",
+      desc: "ROV monitoring kualitas air yang membaca nilai pH secara real-time." },
+    { date: "Ags 2025", title: "ROV untuk Pemetaan dan Survei Bawah Air", img: "project-rov-mapping.jpg",
+      desc: "Rancang bangun ROV untuk pemetaan dan survei kondisi bawah air." },
     { date: "Apr 2025", title: "Computer Integrated System – SCADA", img: "project-scada.jpg",
       desc: "Modul SCADA untuk mengintegrasikan dan mengendalikan proses industri." },
     { date: "Ags 2024", title: "Monitoring PLTB Spiral (IoT)", img: "project-wind.jpg",
