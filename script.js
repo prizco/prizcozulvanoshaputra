@@ -11,7 +11,6 @@ const experience = [
     ]},
     { date: "Jul 2025 – Des 2025", title: "Mechatronic Engineer", org: "CV ROV Indonesia, Surabaya", points: [
         "Ikut mengembangkan ROV dengan sikat untuk membersihkan lambung kapal.",
-        "Menerapkan prinsip Kaizen (5S & PDCA/SDCA) untuk memperbaiki organisasi kerja dan standardisasi.",
         "Ikut mengembangkan ROV untuk memeriksa ketebalan lambung kapal.",
         "Ikut mengembangkan remotely surface vehicle untuk memeriksa kedalaman dan monitoring danau."
     ]},
