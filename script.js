@@ -48,7 +48,7 @@ const projects = [
       desc: "Pelacakan posisi, koordinat, dan pergerakan kapal secara real-time dengan Hybrid GPS Tracker." },
     { date: "Jan 2026", title: "ROV dengan Monitoring 3 Kamera", img: "project-rov-camera.jpg",
       desc: "ROV semi-otonom dan manual dengan tiga kamera onboard, tiga layar GCS, dan transmisi video real-time untuk observasi multi-sudut." },
-    { date: "Ags 2025", title: "ROV Inspeksi Lambung Kapal dengan Ultrasonic Thickness Gauge", img: "project-rov-thickness.jpg",
+    { date: "Ags 2025", title: "ROV Inspeksi Lambung Kapal dengan Ultrasonic Thickness Gauge", img: "project-rov-thickness11.jpg",
       desc: "ROV inspeksi yang mengukur ketebalan plat lambung kapal di bawah air memakai sensor ultrasonic thickness gauge untuk menilai kondisi lambung." },
     { date: "Ags 2025", title: "ROV Pembersih Lambung Kapal Berbasis Sikat Rotari", img: "project-rov-brushing.jpg",
       desc: "Rancang bangun ROV pembersih lambung kapal dengan mekanisme sikat rotari." },
