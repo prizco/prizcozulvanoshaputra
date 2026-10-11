@@ -48,11 +48,11 @@ const projects = [
       desc: "Pelacakan posisi, koordinat, dan pergerakan kapal secara real-time dengan Hybrid GPS Tracker." },
     { date: "Jan 2026", title: "ROV dengan Monitoring 3 Kamera", img: "project-rov-camera.jpg",
       desc: "ROV semi-otonom dan manual dengan tiga kamera onboard, tiga layar GCS, dan transmisi video real-time untuk observasi multi-sudut." },
-    { date: "Ags 2025", title: "ROV Inspeksi Lambung Kapal dengan Ultrasonic Thickness Gauge", img: "project-rov-thickness.jpg",
+    { date: "Nov 2025", title: "ROV Inspeksi Lambung Kapal dengan Ultrasonic Thickness Gauge", img: "project-rov-thickness.jpg",
       desc: "ROV inspeksi yang mengukur ketebalan plat lambung kapal di bawah air memakai sensor ultrasonic thickness gauge untuk menilai kondisi lambung." },
-    { date: "Ags 2025", title: "ROV Pembersih Lambung Kapal Berbasis Sikat Rotari", img: "project-rov-brushing.jpg",
+    { date: "Okt 2025", title: "ROV Pembersih Lambung Kapal Berbasis Sikat Rotari", img: "project-rov-brushing.jpg",
       desc: "Rancang bangun ROV pembersih lambung kapal dengan mekanisme sikat rotari." },
-    { date: "Ags 2025", title: "ROV Pemantau Kualitas Air dengan Sensor pH", img: "project-rov-ph.jpg",
+    { date: "Sep 2025", title: "ROV Pemantau Kualitas Air dengan Sensor pH", img: "project-rov-ph.jpg",
       desc: "ROV monitoring kualitas air yang membaca nilai pH secara real-time." },
     { date: "Ags 2025", title: "ROV untuk Pemetaan dan Survei Bawah Air", img: "project-rov-mapping.jpg",
       desc: "Rancang bangun ROV untuk pemetaan dan survei kondisi bawah air." },
@@ -77,7 +77,7 @@ const organization = [
         "Perakitan, perawatan, dan uji coba ROV; mengajar siswa tentang inovasi teknologi dan robot."
     ]},
     { date: "Jan 2025 – Agu 2025", title: "Robotics Instructor & Coach", org: "Sekolah Robot Indonesia, Surabaya", points: [
-        "Mengajar robotika, elektronika, mekanika, sensor, dan pemrograman untuk siswa SD secara hands-on."
+        "Mengajar robotika, elektronika, mekanika, sensor, dan pemrograman untuk siswa SD dan SMP."
     ]},
     { date: "Des 2024", title: "Koordinator Wisuda Teknik Otomasi 2024", org: "Robotics Community PPNS", points: [
         "Mengoordinasi seluruh aspek teknis dan non-teknis acara."
