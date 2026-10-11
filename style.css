@@ -575,3 +575,195 @@ footer {
         width: 100%;
     }
 }
+
+
+/* ============================================================
+   TEMA BAWAH AIR: animasi
+   ============================================================ */
+
+/* Gelembung (canvas) dan cahaya dari permukaan */
+#bubbles {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 70% 45% at 50% -8%, rgba(90, 180, 210, 0.22), transparent 70%),
+        linear-gradient(to bottom, transparent 40%, rgba(2, 11, 16, 0.5));
+    animation: surface-light 9s ease-in-out infinite;
+}
+
+section, footer, .wave-divider {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes surface-light {
+    0%, 100% { opacity: 0.65; }
+    50%      { opacity: 1; }
+}
+
+/* Garis progres scroll */
+.progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, #4fd1d9, var(--rov));
+}
+
+/* Tombol unduh CV */
+.btn.ghost {
+    background: rgba(230, 240, 242, 0.08);
+    border-color: var(--mist);
+    color: var(--foam);
+}
+
+.btn.ghost:hover {
+    border-color: var(--foam);
+}
+
+/* Foto profil: mengapung + cincin sonar */
+.photo-wrap {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    animation: bob 6s ease-in-out infinite;
+}
+
+.photo-wrap .hero-photo {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.sonar {
+    position: absolute;
+    inset: 0;
+    border: 2px solid rgba(255, 138, 61, 0.65);
+    border-radius: var(--radius);
+    animation: sonar 3.6s ease-out infinite;
+}
+
+.sonar:nth-child(2) {
+    animation-delay: 1.8s;
+}
+
+@keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-12px); }
+}
+
+@keyframes sonar {
+    0%   { transform: scale(1);    opacity: 0.7; }
+    100% { transform: scale(1.35); opacity: 0; }
+}
+
+/* Muncul perlahan saat di-scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.in {
+    opacity: 1;
+    transform: none;
+}
+
+/* Garis di bawah judul section tumbuh saat muncul */
+.section-title::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 4px;
+    margin: 14px auto 0;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #4fd1d9, var(--rov));
+    transition: width 0.8s ease 0.3s;
+}
+
+.section-title.in::after {
+    width: 70px;
+}
+
+/* Hover kartu seperti terkena cahaya sonar */
+.project-card,
+.achievement,
+.skill {
+    transition: opacity 0.7s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover,
+.achievement:hover,
+.skill:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(79, 209, 217, 0.18), 0 0 0 1px rgba(255, 138, 61, 0.5);
+}
+
+/* Gelombang di atas footer */
+.wave-divider {
+    height: 110px;
+    overflow: hidden;
+    margin-top: 40px;
+    margin-bottom: -1px;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+}
+
+.wave path {
+    fill: #020b10;
+}
+
+.w1 { opacity: 0.3; animation: wave-move 18s linear infinite; }
+.w2 { opacity: 0.55; animation: wave-move 12s linear infinite reverse; }
+.w3 { opacity: 1; animation: wave-move 8s linear infinite; }
+
+@keyframes wave-move {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+@media (max-width: 900px) {
+
+    .photo-wrap {
+        max-width: 300px;
+        order: -1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .photo-wrap, .sonar, .wave, body::before {
+        animation: none;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .section-title::after {
+        width: 70px;
+        transition: none;
+    }
+}
